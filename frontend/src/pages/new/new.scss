@@ -1,0 +1,58 @@
+.new {
+    width: 100%;
+    display: flex;
+
+    .newContainer {
+        flex: 6;
+
+        .top,
+        .bottom {
+            padding: 10px;
+            -webkit-box-shadow: 4px 1px 8px 0px #91FFEE;
+            box-shadow: 4px 1px 8px 0px #91FFEE;
+            margin: 20px;
+            display: flex;
+
+            h1 {
+                font-size: 20px;
+                color: lightgray;
+            }
+
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-around;
+
+                .formInput {
+                    width: 40%;
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                    }
+                }
+
+                button {
+                    width: 200px;
+                    padding: 10px;
+                    border: none;
+                    background-color: teal;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                    margin-top: 10px;
+                }
+
+            }
+        }
+    }
+}

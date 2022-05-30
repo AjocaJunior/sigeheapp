@@ -1,0 +1,127 @@
+.single {
+    display: flex;
+    width: 100%;
+
+    .singleContainer {
+        flex: 6;
+
+        .bottom1 {
+            padding: 10px;
+            -webkit-box-shadow: 4px 1px 8px 0px #91FFEE;
+            box-shadow: 4px 1px 8px 0px #91FFEE;
+            margin: 20px;
+            display: flex;
+
+            h1 {
+                font-size: 20px;
+                color: lightgray;
+            }
+
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-around;
+
+                .formInput {
+                    width: 40%;
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    input {
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                    }
+                }
+
+                button {
+                    width: 200px;
+                    padding: 10px;
+                    border: none;
+                    background-color: teal;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                    margin-top: 10px;
+                }
+
+            }
+        }
+        .top {
+           
+
+            .editButton {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 5px;
+                font-size: 12px;
+                color: #7451f8;
+                background-color: #d7d6da;
+                border-radius: 0 0 0 5px;
+            }
+
+            .item {
+                display: flex;
+                gap: 20px;
+            }
+
+            .details {
+                .itemTitle {
+                    margin-bottom: 10px;
+                    color: #555;
+
+                }
+
+                .detailItem {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+
+                    .itemKey {
+                        font-weight: bold;
+                        color: gray;
+                        margin-right: 5px;
+
+                    }
+
+                    .itemValue {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            padding: 1px;
+            -webkit-box-shadow: 4px 1px 8px 0px #91FFEE;
+            box-shadow: 4px 1px 8px 0px #91FFEE;
+            margin: 1px 2px;
+
+            TableContainer{
+                Table{
+                    TableBody{
+                        TableRow{
+                            TableCell{
+                                input{
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        .title{
+            font-size: 18px;
+            color: lightgray;
+            margin-bottom: 20px;
+        }
+    }
+}

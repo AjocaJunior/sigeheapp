@@ -1,0 +1,55 @@
+body {
+  
+
+    .login {
+        background-image: url(https://images.pexels.com/photos/745365/pexels-photo-745365.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-745365.jpg&fm=jpg);
+  margin: 0;
+    padding: 0;
+   
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+        .loginContainer {
+            -webkit-box-shadow: 4px 1px 8px 0px hsla(171, 100%, 78%, 0.171);
+            box-shadow: 4px 1px 8px 0px hsla(171, 100%, 78%, 0.322);
+
+            transform: translate(-50%, 50%);
+            position: absolute;
+            top: 10%;
+            background-color: white;
+            left: 50%;
+            width: 400px;
+            border-radius: 10px;
+padding-bottom: 10px;
+            img {align-items: center;
+                text-align: center;
+            }
+
+            .inputItem {
+                align-items: center;
+                text-align: center;
+margin-top: 5px;
+                .inputLogin{
+                    
+                    width:250px;
+                    padding: 5px;
+                    border:none;
+                    border-bottom: 1px solid gray;
+                }
+
+                .loginButton{
+                    width: 200px;
+                    padding: 10px;
+                    border: none;
+                    background-color: teal;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer; 
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+}

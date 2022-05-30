@@ -1,0 +1,50 @@
+.eventoItem{
+    border:1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.imgItem{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.itemDescricao{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.eventoTitulo{
+    font-size: 22px;
+    color: rgb(207, 5, 5);
+}
+.eventoDesc{
+    font-size: 16px;
+}
+
+.eventoData{
+    font-size: 13px;
+    font-weight: bold;
+}
+.eventoPeriodo{
+    font-size: 13px;
+}
+.eventoSala{
+    font-size:13px;
+}
+
+.eventoConvidados{
+    font-size: 14px;
+    background-color: rgb(166, 166, 226);
+    color: white;
+    border-radius: 1px solid white;
+    padding: 5px;
+    font-weight: bold;
+}

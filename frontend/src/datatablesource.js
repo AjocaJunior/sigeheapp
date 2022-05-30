@@ -1,0 +1,55 @@
+ export const gradeColumns = [
+  
+ 
+];
+
+
+// export const gradeRows = [
+//   {
+//     id:1,
+//     periodo: "07:30 - 08:30",
+//     segunda: "ASC",
+//     terca: "Intro a Gestão",
+//     quarta: "Análise Matemática I",
+//     quinta: "Economia I",
+//     sexta: "Programação I",
+//     sabado: "-",
+//   },
+//   {
+//     id:2,
+//     periodo: "08:40 - 09:30",
+//     segunda: "ASC",
+//     terca: "Intro a Gestão",
+//     quarta: "Análise Matemática I",
+//     quinta: "Economia I",
+//     sexta: "Programação I",
+//     sabado: "-",
+//   },
+//   {id:3,
+//     periodo: "09:50 - 10:40",
+//     segunda: "ASC",
+//     terca: "Programação I",
+//     quarta: "Intro a Gestão",
+//     quinta: "Economia I",
+//     sexta: "Análise Matemática I",
+//     sabado: "-",
+//   },
+//   { id:4,
+//     periodo: "10:50 - 11:40",
+//     segunda: "Inglês I",
+//     terca: "Programação I",
+//     quarta: "Intro a Gestão",
+//     quinta: "ASC",
+//     sexta: "Análise Matemática I",
+//     sabado: "-",
+//   },
+//   { id:5,
+//     periodo: "11:50 - 12:40",
+//     segunda: "Inglês I",
+//     terca: "Programação I",
+//     quarta: "Intro a Gestão",
+//     quinta: "ASC",
+//     sexta: "Análise Matemática I",
+//     sabado: "-",
+//   },
+// ];
