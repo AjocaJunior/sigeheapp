@@ -13,6 +13,23 @@ import cursoRoutes from './routes/cursoRoutes.js'
 import uploadsRoutes from './routes/uploadsRoutes.js'
 import eventoRoutes from './routes/eventoRoutes.js'
 import blocoRoutes from './routes/blocoRoutes.js'
+import { Server } from "socket.io";
+
+const io = new Server({ cors:{
+  origin:"http://localhost:3000"
+} });
+
+io.on("connection", (socket) => {
+  
+  io.emit("primeiroEvento","Oi, este é o primeiro evento");
+
+  socket.on("disconnect",()=>{
+    console.log("alguém se disconectou")
+  })
+});
+
+io.listen(8880);
+
 
 const app = express();
 

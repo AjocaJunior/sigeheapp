@@ -35,37 +35,90 @@ const deleteGrade = asyncHandler(async (req, res) => {
 });
 
 //CRIAR GRADE
-const createGrade = asyncHandler(async (req, res) => {
-  const grade = await new Grade({
-    curso: "Null",
-    codigo: "Null",
-    docente: req.docente._id,
-    semestre: 0,
-    bloco: "Null",
-    sala: "Null",
+const createEvento = asyncHandler(async (req, res) => {
+  const {
+    titulo,
+    descricao,
+    convidados,
+    data1,
+    data2,
+    hora1,
+    hora2,
+    bloco,
+    sala,
+    img,
+    link,
+  } = req.body;
+  const evento = await Evento.create({
+    titulo,
+    descricao,
+    convidados,
+    data1,
+    data2,
+    hora1,
+    hora2,
+    bloco,
+    sala,
+    img,
+    link,
   });
-  const createdGrade = await grade.save();
-  res.status(201).json(createdGrade);
+
+  if (evento) {
+    res.status(201).json({
+      titulo: evento.titulo,
+      descricao: evento.descricao,
+      convidados: evento.convidados,
+      data1: evento.data1,
+      data2: evento.data2,
+      hora1: evento.hora1,
+      hora2: evento.hora2,
+      bloco: evento.bloco,
+      sala: evento.sala,
+      img: evento.img,
+      link: evento.link,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Dados Inválidos");
+  }
 });
 
 //CRIAR GRADE
-const updateGrade = asyncHandler(async (req, res) => {
-  const { curso, codigo, semestre, bloco, sala } = req.body;
+const updateEvento = asyncHandler(async (req, res) => {
+  const {
+    titulo,
+    descricao,
+    convidados,
+    data1,
+    data2,
+    hora1,
+    hora2,
+    img,
+    link,
+    bloco,
+    sala,
+  } = req.body;
 
-  const grade = await Grade.findById(req.params.id);
+  const evento = await Evento.findById(req.params.id);
 
-  if (grade) {
-    grade.curso = curso;
-    grade.codigo = codigo;
-    grade.semestre = semestre;
-    grade.bloco = bloco;
-    grade.sala = sala;
+  if (evento) {
+    evento.titulo = titulo;
+    evento.descricao = descricao;
+    evento.convidados = convidados;
+    evento.data1 = data1;
+    evento.data2 = data2;
+    evento.hora1 = hora1;
+    evento.hora2 = hora2;
+    evento.img = img;
+    evento.link = link;
+    evento.bloco = bloco;
+    evento.sala = sala;
 
-    const updatedGrade = await grade.save();
-    res.json(updatedGrade);
+    const updatedEvento = await evento.save();
+    res.json(updatedEvento);
   } else {
     res.status(404);
-    throw new Error("Grade não encontrada");
+    throw new Error("Evento não encontrado");
   }
 });
 
@@ -88,8 +141,8 @@ const createDias = asyncHandler(async (req, res) => {
       docente: req.docente._id,
     };
     grade.dias.push(dia);
-    await grade.save()
-    res.status(201).json({message:'Aulas Adicionadas'})
+    await grade.save();
+    res.status(201).json({ message: "Aulas Adicionadas" });
   } else {
     res.status(404);
     throw new Error("Grade não encontrada");
@@ -111,8 +164,8 @@ export {
   getEventos,
   getEventoById,
   getSearchGrade,
-  createGrade,
-  updateGrade,
+  createEvento,
+  updateEvento,
   deleteGrade,
   createDias,
 };

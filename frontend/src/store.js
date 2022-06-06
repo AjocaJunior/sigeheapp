@@ -33,7 +33,7 @@ import {
   orderPayReducer,
 } from "./reducers/orderReducers";
 
-import { eventoListReducer, eventoDetailReducer } from './reducers/eventoReducers';
+import { eventoListReducer, eventoDetailReducer,eventoCreateReducer,eventoUpdateReducer } from './reducers/eventoReducers';
   
 
 const reducer = combineReducers({
@@ -62,7 +62,9 @@ const reducer = combineReducers({
   blocoList: blocoListReducer,
   blocoDetail: blocoDetailReducer,
   eventoList:eventoListReducer,
-  eventoDetail:eventoDetailReducer
+  eventoDetail:eventoDetailReducer,
+  eventoCreate: eventoCreateReducer,
+  eventoUpdate:eventoUpdateReducer
 });
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItems")

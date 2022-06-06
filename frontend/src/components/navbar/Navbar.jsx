@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import "./navbar.scss";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -9,7 +9,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({socket}) => {
 
   const dispatchLogout = useDispatch();
 
@@ -22,7 +22,15 @@ const Navbar = () => {
     dispatchLogout(logout());
   }
 
+const [notifications,setNotifications] = useState([]);
 
+// useEffect(()=>{
+// socket.on("getNotification", data=>{
+// setNotifications(prev=>[...prev, data])
+// })
+// },[socket])
+
+console.log(notifications)
 
   return (
     <div className="navbar">

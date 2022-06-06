@@ -90,23 +90,34 @@ export const deleteGrade = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createGrade = () => async (dispatch, getState) => {
+export const createEvento = (titulo,
+  descricao,
+  convidados,
+  data1,
+  data2,
+  hora1,
+  hora2,
+  bloco,
+  sala,
+  img,
+  link) => async (dispatch) => {
   try {
     dispatch({
       type: EVENTO_CREATE_REQUEST,
     });
 
-    const {
-      docenteLogin: { docenteInfo },
-    } = getState();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${docenteInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.post(`/api/grades/`, {}, config);
+    const { data } = await axios.post(`/api/eventos/`, {titulo,
+      descricao,
+      convidados,
+      data1,
+      data2,
+      hora1,
+      hora2,
+      bloco,
+      sala,
+      img,
+      link});
 
     dispatch({
       type: EVENTO_CREATE_SUCCESS,
@@ -123,24 +134,14 @@ export const createGrade = () => async (dispatch, getState) => {
   }
 };
 
-export const updateGrade = (grade) => async (dispatch, getState) => {
+export const updateEvento = (evento) => async (dispatch) => {
   try {
     dispatch({
       type: EVENTO_UPDATE_REQUEST,
     });
 
-    const {
-      docenteLogin: { docenteInfo },
-    } = getState();
 
-    const config = {
-      headers: {  
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${docenteInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.put(`/api/grades/${grade._id}`, grade, config);
+    const { data } = await axios.put(`/api/eventos/${evento._id}`, evento);
 
     dispatch({
       type: EVENTO_UPDATE_SUCCESS,

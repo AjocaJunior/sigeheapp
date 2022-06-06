@@ -48,3 +48,9 @@
     padding: 5px;
     font-weight: bold;
 }
+
+.linkClass{
+    display: inline;
+    margin-left: 200px;
+    cursor: pointer;
+}

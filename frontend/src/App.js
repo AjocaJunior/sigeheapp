@@ -1,18 +1,7 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import Header from "./componentes/Header";
-import Footer from "./componentes/Footer";
-import HomeScreen from "./screens/HomeScreen";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ProductScreen from "./screens/ProductScreen";
-import CartScreen from "./screens/CartScreen";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import ShippingScreen from "./screens/ShippingScreen";
-import PaymentScreen from "./screens/PaymentScreen";
-import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import OrderScreen from "./screens/OrderScreen";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";

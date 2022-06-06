@@ -18,6 +18,11 @@ import {
   updateGrade,
   createGradeDia,
 } from "../../actions/gradeActions";
+import {
+  
+  listCursos
+  
+} from "../../actions/cursoblocoanoActions";
 import Loader from "./../../componentes/Loader";
 import Message from "./../../componentes/Message";
 import {
@@ -31,18 +36,18 @@ const Single = () => {
   const navigate = useNavigate();
 
   const gradeDiaCreate = useSelector((state) => state.gradeDiaCreate);
-  const { success: successDia, error: errorDia } = gradeDiaCreate;
-
-  const docenteLogin = useSelector((state) => state.docenteLogin);
-  const { docenteInfo } = docenteLogin;
+  const { success: successDia } = gradeDiaCreate;
+  const cursoList = useSelector((state) => state.cursoList);
+  const {cursos } = cursoList;
+  // const docenteLogin = useSelector((state) => state.docenteLogin);
+  // const { docenteInfo } = docenteLogin;
 
   const gradeDetails = useSelector((state) => state.gradeDetails);
   const { loading, error, grade } = gradeDetails;
 
   const gradeUpdate = useSelector((state) => state.gradeUpdate);
   const {
-    loading: loadingUpdate,
-    error: errorUpdate,
+
     success: successUpdate,
   } = gradeUpdate;
 
@@ -59,7 +64,7 @@ const Single = () => {
   const [quarta, setQuarta] = useState("");
   const [quinta, setQuinta] = useState("");
   const [sexta, setSexta] = useState("");
-  const [sabado, setSabado] = useState("");
+  // const [sabado, setSabado] = useState("");
 
   const { id } = useParams();
   useEffect(() => {

@@ -6,15 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { useParams } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
-import { listGradeDetails, createGradeDia } from "../../actions/gradeActions";
-import Loader from "./../../componentes/Loader";
-import Message from "./../../componentes/Message";
-import {
-  GRADE_UPDATE_RESET,
-  GRADE_CREATE_DIAS_RESET,
-} from "./../../constants/gradeConstants";
+import { listGradeDetails, } from "../../actions/gradeActions";
+
 
 const List = () => {
   const id = localStorage.getItem("idGrade");
@@ -23,9 +18,9 @@ const List = () => {
 
   const DefaultId = "628563a24d85a054d0a870a5";
   const gradeDetails = useSelector((state) => state.gradeDetails);
-  const { loading, error, grade } = gradeDetails;
-  const gradeDiaCreate = useSelector((state) => state.gradeDiaCreate);
-  const { success: successDia, error: errorDia } = gradeDiaCreate;
+  const { grade } = gradeDetails;
+  // const gradeDiaCreate = useSelector((state) => state.gradeDiaCreate);
+  // const { success: successDia, error: errorDia } = gradeDiaCreate;
   useEffect(() => {
     if (id) {
       dispatch(listGradeDetails(id));

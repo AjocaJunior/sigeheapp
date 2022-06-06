@@ -32,9 +32,9 @@ const SingleDocente = () => {
   const [contacto, setContacto] = useState("");
 
   const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [image, setImage] = useState("");
-  const [uploading, setUploading] = useState(false);
+  // const [message, setMessage] = useState("");
+  // const [image, setImage] = useState("");
+  // const [uploading, setUploading] = useState(false);
 
   const docenteDetailsData = useSelector((state) => state.docenteDetailsData);
   const { loading, error, docente } = docenteDetailsData;

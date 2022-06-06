@@ -77,16 +77,16 @@ export const eventoCreateReducer = (state = {}, action) => {
   }
 };
 
-export const gradeUpdateReducer = (state = { grade: {} }, action) => {
+export const eventoUpdateReducer = (state = { evento: {} }, action) => {
   switch (action.type) {
     case EVENTO_UPDATE_REQUEST:
       return { loading: true };
     case EVENTO_UPDATE_SUCCESS:
-      return { loading: false, success: true, grade: action.payload };
+      return { loading: false, success: true, evento: action.payload };
     case EVENTO_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     case EVENTO_UPDATE_RESET:
-      return { grade: {} };
+      return { evento: {} };
     default:
       return state;
   }
