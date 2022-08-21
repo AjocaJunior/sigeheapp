@@ -4,7 +4,7 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { gradeColumns } from "../../datatablesource";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   listGrades,
@@ -19,6 +19,12 @@ const Datatable = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [curso, setCurso] = useState();
+  const [codigo, setCodigo] = useState();
+  
+  const [semestre, setSemestre] = useState();
+  const [bloco, setBloco] = useState();
+const [sala, setSala] = useState();
   const gradeList = useSelector((state) => state.gradeList);
   const { loading, error, grades } = gradeList;
 
@@ -62,7 +68,7 @@ const Datatable = () => {
   };
 
   const createGradeHandler = () => {
-    dispatch(createGrade());  
+    dispatch(createGrade(curso, codigo, semestre, bloco, sala));
   };
 
   const handleView = (_id) => {};
@@ -121,23 +127,43 @@ const Datatable = () => {
         <form action="">
           <div className="formInput">
             <label htmlFor="">Curso</label>
-            <input type="text" placeholder="Informatica de Gestao" />
+            <input
+              type="text"
+              placeholder="Informatica de Gestao"
+              onChange={(e) => setCurso(e.target.value)}
+            />
           </div>
           <div className="formInput">
             <label htmlFor="">Codigo</label>
-            <input type="text" placeholder="(Curso&Número)" />
+            <input
+              type="text"
+              placeholder="(ID&NR)"
+              onChange={(e) => setCodigo(e.target.value)}
+            />
           </div>
           <div className="formInput">
             <label htmlFor="">Semestre</label>
-            <input type="text" placeholder="Número" />
+            <input
+              type="text"
+              placeholder="Número"
+              onChange={(e) => setSemestre(e.target.value)}
+            />
           </div>
           <div className="formInput">
             <label htmlFor="">Bloco</label>
-            <input type="text" placeholder="Número" />
+            <input
+              type="text"
+              placeholder="Número"
+              onChange={(e) => setBloco(e.target.value)}
+            />
           </div>
           <div className="formInput">
             <label htmlFor="">Sala</label>
-            <input type="text" placeholder="Número/Nome" />
+            <input
+              type="text"
+              placeholder="Número/Nome"
+              onChange={(e) => setSala(e.target.value)}
+            />
           </div>
 
           <button onClick={createGradeHandler}>

@@ -13,13 +13,13 @@ import {
   GRADE_DELETE_SUCCESS,
   GRADE_CREATE_FAIL,
   GRADE_CREATE_REQUEST,
-
   GRADE_CREATE_SUCCESS,
   GRADE_UPDATE_REQUEST,
   GRADE_UPDATE_FAIL,
-
   GRADE_UPDATE_SUCCESS,
-  GRADE_CREATE_DIAS_FAIL, GRADE_CREATE_DIAS_REQUEST, GRADE_CREATE_DIAS_SUCCESS
+  GRADE_CREATE_DIAS_FAIL,
+  GRADE_CREATE_DIAS_REQUEST,
+  GRADE_CREATE_DIAS_SUCCESS,
 } from "../constants/gradeConstants";
 
 export const listGrades = () => async (dispatch) => {
@@ -90,38 +90,44 @@ export const deleteGrade = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createGrade = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: GRADE_CREATE_REQUEST,
-    });
+export const createGrade =
+  (curso, codigo, docente, semestre, bloco, sala) =>
+  async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: GRADE_CREATE_REQUEST,
+      });
 
-    const {
-      docenteLogin: { docenteInfo },
-    } = getState();
+      const {
+        docenteLogin: { docenteInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${docenteInfo.token}`,
-      },
-    };
+      const config = {
+        headers: {
+          Authorization: `Bearer ${docenteInfo.token}`,
+        },
+      };
 
-    const { data } = await axios.post(`/api/grades/`, {}, config);
+      const { data } = await axios.post(
+        `/api/grades/`,
+        { curso, codigo, docente, semestre, bloco, sala },
+        config
+      );
 
-    dispatch({
-      type: GRADE_CREATE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: GRADE_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      dispatch({
+        type: GRADE_CREATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: GRADE_CREATE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const updateGrade = (grade) => async (dispatch, getState) => {
   try {
@@ -134,8 +140,8 @@ export const updateGrade = (grade) => async (dispatch, getState) => {
     } = getState();
 
     const config = {
-      headers: {  
-        'Content-Type': 'application/json',
+      headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${docenteInfo.token}`,
       },
     };
@@ -157,7 +163,6 @@ export const updateGrade = (grade) => async (dispatch, getState) => {
   }
 };
 
-
 export const createGradeDia = (gradeId, dia) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -169,8 +174,8 @@ export const createGradeDia = (gradeId, dia) => async (dispatch, getState) => {
     } = getState();
 
     const config = {
-      headers: {  
-        'Content-Type': 'application/json',
+      headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${docenteInfo.token}`,
       },
     };
@@ -179,7 +184,6 @@ export const createGradeDia = (gradeId, dia) => async (dispatch, getState) => {
 
     dispatch({
       type: GRADE_CREATE_DIAS_SUCCESS,
-   
     });
   } catch (error) {
     dispatch({
@@ -191,8 +195,6 @@ export const createGradeDia = (gradeId, dia) => async (dispatch, getState) => {
     });
   }
 };
-
-
 
 export const getUrlGrade = () => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/grades/?`);

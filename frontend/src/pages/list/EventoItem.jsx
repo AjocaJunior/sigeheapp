@@ -3,12 +3,8 @@ import "./eventoItem.css";
 import { useSelector, useDispatch } from "react-redux";
 import { listEventos } from "./../../actions/eventoActions";
 
-
 const EventoItem = () => {
   const dispatch = useDispatch();
-
-
-  
 
   const eventoList = useSelector((state) => state.eventoList);
   const { eventos } = eventoList;
@@ -21,8 +17,6 @@ const EventoItem = () => {
     //   console.log(msg)
     // }))
   }, [dispatch]);
-
-
 
   return (
     <>
@@ -44,15 +38,12 @@ const EventoItem = () => {
               Bloco: {item.bloco} - Sala: {item.sala}
             </span>
             <span className="eventoConvidados">
-              Convidados: Mestre Amílcar Gonzalez, Mestre Paulo Tajú, Prof.
-              Doutor Orlando Zacarias{" "}
+              {item.convidados ? item.convidados : "Sem convidados"}
             </span>
-            <span >
-              <a  href={item.link} target="_blank" rel="noreferrer">
+            <span>
+              <a href={item.link} target="_blank" rel="noreferrer">
                 Ver mais
               </a>
-             
-            
             </span>
           </div>
         </div>

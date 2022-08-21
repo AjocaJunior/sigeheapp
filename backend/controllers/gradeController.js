@@ -36,16 +36,29 @@ const deleteGrade = asyncHandler(async (req, res) => {
 
 //CRIAR GRADE
 const createGrade = asyncHandler(async (req, res) => {
-  const grade = await new Grade({
-    curso: "Null",
-    codigo: "Null",
+  const { curso, codigo, semestre, bloco, sala } = req.body;
+  const grade = await Grade.create({
+    curso,
+    codigo,
     docente: req.docente._id,
-    semestre: 0,
-    bloco: "Null",
-    sala: "Null",
+    semestre,
+    bloco,
+    sala,
   });
-  const createdGrade = await grade.save();
-  res.status(201).json(createdGrade);
+
+  if (grade) {
+    res.status(201).json({
+      curso: grade.curso,
+      codigo: grade.codigo,
+      docente: req.docente._id,
+      semestre: grade.semestre,
+      bloco: grade.bloco,
+      sala: grade.sala,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Dados da Grade Inválidos");
+  }
 });
 
 //CRIAR GRADE
@@ -88,8 +101,8 @@ const createDias = asyncHandler(async (req, res) => {
       docente: req.docente._id,
     };
     grade.dias.push(dia);
-    await grade.save()
-    res.status(201).json({message:'Aulas Adicionadas'})
+    await grade.save();
+    res.status(201).json({ message: "Aulas Adicionadas" });
   } else {
     res.status(404);
     throw new Error("Grade não encontrada");
